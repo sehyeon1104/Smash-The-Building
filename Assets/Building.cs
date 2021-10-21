@@ -2,31 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 public class Building : MonoBehaviour
 {
-    object[] sprites; 
+    
     Button Clicker;
     public int fullhp;
     int DeathMoney=5;
     public int hp;
     public Image hpbar;
     int BreakLevel;
-    const int BreakCount = 6;
-    Image SP;
+    const int BreakCount = 5;
     public float[] pos = new float[BreakCount];
 
     private void Awake()
     {
-        sprites = Resources.LoadAll("Building");
-         SP = GetComponent<Image>();
-         SP.sprite = (Sprite)sprites[5];
-        print(sprites);
+        
+        print("AWAkewasstartd");
         for(int i=0;i<BreakCount;i++)
         {
             pos[i] = (1 / (float)(BreakCount-1))* i;
             print(i);
         }
+
         Clicker = GetComponent<Button>();
         Clicker.onClick.RemoveAllListeners();
         Clicker.onClick.AddListener(() => {
@@ -38,8 +35,8 @@ public class Building : MonoBehaviour
     public void Clicked(int damage)
     {
         //´åÆ®¿ø
-        transform.DOShakePosition(1f,10);
         hp -= damage;
+        
         if(hp<=0)
         {
             GameManager.Instance.money += DeathMoney;
@@ -50,23 +47,17 @@ public class Building : MonoBehaviour
         
         hpbar.fillAmount = hp / (float)fullhp;
         int BreakLevel = 0;
-        for(int i=0; i<BreakCount-1; i++)
+        for(int i=0; i<BreakCount-2; i++)
         {
             if (pos[i] <= hpbar.fillAmount && hpbar.fillAmount < pos[i + 1])
             {
-                BreakLevel = i;
+                BreakLevel = i+1;
                 break;
             }
                 
         }
-        //if (!(this.BreakLevel == BreakLevel))
-        {
-            this.BreakLevel = BreakLevel;
-            print(BreakLevel);
-            
-                
-            SP.sprite = (Sprite)sprites[BreakLevel];
-        }
+
+        if (!(this.BreakLevel == BreakLevel)) ;
            
 
         

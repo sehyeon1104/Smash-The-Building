@@ -1,1 +1,0 @@
-﻿{"Money":0,"main":[{"Name":"빠루","Level":1,"Damage":1,"Delay":0.0,"RepeatTime":0,"RepeatDelay":0,"Cost":0},{"Name":"오함마","Level":1,"Damage":2,"Delay":0.0,"RepeatTime":0,"RepeatDelay":0,"Cost":0},{"Name":"주먹","Level":1,"Damage":1,"Delay":0.0,"RepeatTime":0,"RepeatDelay":0,"Cost":0},{"Name":"뿌레카","Level":1,"Damage":10,"Delay":0.0,"RepeatTime":0,"RepeatDelay":0,"Cost":0}],"surv":[]}
